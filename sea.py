@@ -41,13 +41,12 @@ map = Basemap(projection='merc',
               llcrnrlon=llcrnrlon_east,  # Lower left corner longitude (converted to degrees east)
               urcrnrlat=-20.0,    # Upper right corner latitude
               urcrnrlon=urcrnrlon_east,  # Upper right corner longitude (approximate, converted to degrees east)
-              resolution='i')
+              resolution='i',
+              epsg = 5641)
 
 lon,lat = np.meshgrid(lons,lats)
 x,y = map(lon,lat)
-map.drawmapboundary(fill_color='aqua')
-map.fillcontinents(color='#cc9955', lake_color='aqua', zorder = 0)
-map.drawcoastlines(color = '0.15')
+map.arcgisimage(verbose= True)
 
 
 # map.quiver(x[22], y[22], 
@@ -55,7 +54,7 @@ map.drawcoastlines(color = '0.15')
 #     cmap=plt.cm.autumn)
 
 # Plot vectors
-map.quiver(x, y, us[0, 0], vs[0, 0], scale=8)
+map.quiver(x, y, us[0, 0], vs[0, 0], scale=10,color='r')
 
 plt.show()
 
