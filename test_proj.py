@@ -8,11 +8,11 @@ lat0, lon0 = -23.99218,  -46.30013 # Set origin
 p = pyproj.Proj(f'+proj=tmerc +lat_0={lat0} +lon_0={lon0} +a=6378137.0 +b=6356752.3142 +units=m +ellps=WGS84 +no_defs') # Define WGS-84 Geodetic Datum Ellipsoidal Parameters
 
 # Read x values from the first .txt file
-with open('x_values.txt', 'r') as file:
+with open('extracted_posx.txt', 'r') as file:
     x_values = [float(value.strip()) for value in file.read().split(',')]
 
 # Read y values from the second .txt file
-with open('y_values.txt', 'r') as file:
+with open('extracted_posy.txt', 'r') as file:
     y_values = [float(value.strip()) for value in file.read().split(',')]
 
 # Initialize lists to store transformed latitudes and longitudes
