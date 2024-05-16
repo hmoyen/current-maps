@@ -29,28 +29,33 @@ with open(output_fileG_path, "w") as output_fileG, \
 
     georef_info = re.search(r'GEOREF\s*=\s*{(.*?)}', data, re.DOTALL)
     if georef_info:
-        output_fileG.write(georef_info.group(1) + "\n")
+        output_fileG.write(georef_info.group(1).replace(" ", "") + "\n")
 
     shadow_current_position_x_info = re.search(r'SHADOW_CURRENT_POSITION_X\s*=\s*{(.*?)}', data, re.DOTALL)
     if shadow_current_position_x_info:
-        output_filePX.write(shadow_current_position_x_info.group(1) + "\n")
+        output_filePX.write(shadow_current_position_x_info.group(1).replace(" ", "") + "\n")
 
     shadow_current_position_y_info = re.search(r'SHADOW_CURRENT_POSITION_Y\s*=\s*{(.*?)}', data, re.DOTALL)
     if shadow_current_position_y_info:
-        output_filePY.write(shadow_current_position_y_info.group(1) + "\n")
+        output_filePY.write(shadow_current_position_y_info.group(1).replace(" ", "") + "\n")
 
     shadow_current_position_z_info = re.search(r'SHADOW_CURRENT_POSITION_Z\s*=\s*{(.*?)}', data, re.DOTALL)
     if shadow_current_position_z_info:
-        output_filePZ.write(shadow_current_position_z_info.group(1) + "\n")
+        output_filePZ.write(shadow_current_position_z_info.group(1).replace(" ", "") + "\n")
 
     # Find and write shadow current velocity X
     shadow_current_velocity_x_info = re.search(r'SHADOW_CURRENT_VELOCITY_X\s*=\s*{([^A-Za-z]*)}', data, re.DOTALL)
     if shadow_current_velocity_x_info:
-        output_fileVX.write(shadow_current_velocity_x_info.group(1) + "\n")
+        velocity_x_data = shadow_current_velocity_x_info.group(1).replace(" ", "").replace("{", "").replace("}", "")
+        output_fileVX.write(velocity_x_data.strip())
 
     # Find and write shadow current velocity Y
     shadow_current_velocity_y_info = re.search(r'SHADOW_CURRENT_VELOCITY_Y\s*=\s*{([^A-Za-z]*)}', data, re.DOTALL)
     if shadow_current_velocity_y_info:
-  
-        y_velocity_data = shadow_current_velocity_y_info.group(1).strip('{}').strip()
-        output_fileVY.write(y_velocity_data + "\n")
+        y_velocity_data = shadow_current_velocity_y_info.group(1).strip('{}').strip().replace(" ", "").replace("{", "").replace("}", "")
+
+        # Remove extra square brackets at the end
+        while y_velocity_data.endswith("}\n}\n}"):
+            y_velocity_data = y_velocity_data[:-6]
+
+        output_fileVY.write(y_velocity_data.strip())
