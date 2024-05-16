@@ -20,12 +20,20 @@ transformed_latitudes = []
 transformed_longitudes = []
 
 # Iterate over each pair of x and y values
-for x, y in zip(x_values, y_values):
+for x in x_values:
     # Transform the x and y values
-    lon, lat = p(x, y, inverse=True)
-    transformed_latitudes.append(lat)
+    lon, lat = p(x, 0, inverse=True)
+
     transformed_longitudes.append(lon)
 
+for y in y_values:
+
+    lon, lat = p(0,y,inverse=True )
+
+    transformed_latitudes.append(lat)
+
+# print(len(transformed_latitudes))
+# print(len(transformed_longitudes))
 
 with open('extracted_velx.txt', 'r') as file:
     # Read each line
@@ -44,7 +52,7 @@ for line in lines:
 
 # Convert the list to a numpy array
 matrix_x = np.array(matrix_x)
-print(matrix_x)
+# print(matrix_x)
 
 with open('extracted_vely.txt', 'r') as file:
     # Read each line
@@ -64,7 +72,7 @@ for line in lines:
 # Convert the list to a numpy array
 matrix_y = np.array(matrix_y)
 
-print(matrix_y)
+# print(matrix_y)
 
 map = Basemap(projection='merc',
               llcrnrlat=-24.083556500669236,
@@ -72,13 +80,16 @@ map = Basemap(projection='merc',
               urcrnrlat=-23.943702371688417,
               urcrnrlon=-46.25227967206122,
               resolution='i',
-              epsg=3857)
+               epsg = 5641)
 
 lon,lat = np.meshgrid(transformed_longitudes,transformed_latitudes)
 x,y = map(lon,lat)
-map.drawcoastlines()
-map.drawcountries()
+# map.drawcoastlines()
+# map.drawcountries()
 
-map.quiver(x, y, matrix_x, matrix_y, scale=100, color='r')
+
+map.arcgisimage(verbose=True)
+
+map.quiver(x, y, matrix_x, matrix_y, scale=40, color='r')
 
 plt.show()
