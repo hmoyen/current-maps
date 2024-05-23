@@ -5,6 +5,7 @@
 - `matplotlib` library
 - `mpl_toolkits.basemap` library
 - Custom `localcartesian` module (`.pyd` file)
+- local cartesian python (https://github.com/geoffviola/local_cartesian_python/tree/master)
 
 ## Installation
 
