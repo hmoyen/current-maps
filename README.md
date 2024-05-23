@@ -16,4 +16,17 @@
    Install the required libraries using `pip`:
 
    ```bash
-   pip install pyproj matplotlib basemap
+   pip install pyproj matplotlib basemap mplleaflet
+
+## Observation
+
+Due to this known issue: [Issue](https://github.com/plotly/plotly.py/issues/3624), we need to modify exporter.py file in mplleaflet. 
+
+```
+I'm not using Plotly directly but mplleaflet and I got the same error. I managed to make it work by replacing in this exporter.py file
+        offset_order = offset_dict[collection.get_offset_position()]
+by
+        offset_order = offset_dict[collection._offset_position]
+
+Hope it helps someone!
+``
