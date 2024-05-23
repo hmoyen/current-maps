@@ -1,6 +1,6 @@
 ## Requirements
 
-- Python 3.6
+- Python 3.6  (to use `comparison.py` - in Windows)
 - `pyproj` library
 - `matplotlib` library
 - `mpl_toolkits.basemap` library
