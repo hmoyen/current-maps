@@ -106,3 +106,12 @@ import osgeo.gdal
 import qgis
 print("All dependencies are successfully installed!")
 ```
+# Running the scripts
+
+## `read.py`
+
+This script reads a `.p3d` file and extract the vector field that to `.txt` files.
+
+##  `gdal_geotiff`
+
+This code will then read the `.txt` files to create a `.tif` file with all the data of the current field. The generated `.tiff` can be used in the `index.html` file in `tornado-web` repo.
