@@ -48,7 +48,7 @@ You can set up the project using either a Python virtual environment (`venv`) or
 
 Obs: If you encounter errors like `    from qgis.core import * ModuleNotFoundError: No module named 'qgis'`, please refer to [Issues](https://docs.qgis.org/3.34/en/docs/pyqgis_developer_cookbook/intro.html). For `.venv`, adding the following line before the import of `qgis` should solve (in Ubuntu):
 
-```
+```python
 import sys
 sys.path.insert(0,"/usr/lib/python3/dist-packages")
 from qgis.core import *
