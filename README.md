@@ -91,8 +91,7 @@ from qgis.core import *
     You can install QGIS through Conda by following the instructions on the [QGIS website](https://plugins.qgis.org/planet/tag/conda/). Typically, this involves adding a specific channel and then installing QGIS:
 
     ```bash
-    conda config --add channels conda-forge
-    conda install qgis
+  conda install qgis --channel conda-forge
     ```
 
 ## Verifying Installation
@@ -114,4 +113,10 @@ This script reads a `.p3d` file and extract the vector field that to `.txt` file
 
 ##  `gdal_geotiff`
 
-This code will then read the `.txt` files to create a `.tif` file with all the data of the current field. The generated `.tiff` can be used in the `index.html` file in `tornado-web` repo.
+This code will then read the `.txt` files to create a `.tif` file with all the data of the current field. The generated `.tiff` can be used in the `index.html` file in `tornado-web` repo. Run in terminal (in the virtual environment, if you are using one):
+
+```
+python3 gdal_geotiff.py
+
+```
+
