@@ -7,7 +7,7 @@ To set up this project, you'll need to create a conda environment and install th
 - [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) installed on your system.
 
 ```
-conda create --name <env> --file requirements.txt
+conda create --name current-env --file requirements.txt
 
 ```
 ## Create TIFF file to use with Leaflet
