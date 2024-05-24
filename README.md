@@ -1,32 +1,21 @@
-## Requirements
+# Project Title
 
-- Python 3.6  (to use `comparison.py` - in Windows)
-- `pyproj` library
-- `matplotlib` library
-- `mpl_toolkits.basemap` library
-- Custom `localcartesian` module (`.pyd` file)
-- local cartesian python (https://github.com/geoffviola/local_cartesian_python/tree/master)
+## Branch: [Your Branch Name]
 
-## Installation
+This branch contains [brief description of the branch, e.g., "enhancements to the workspace structure, bug fixes, new features, etc."].
 
-1. **Python 3.6**:
-   Ensure you have Python 3.6 installed. You can download it from the official Python website: [Python 3.6](https://www.python.org/downloads/release/python-360/)
+## Setup Instructions
 
-2. **Required Libraries**:
-   Install the required libraries using `pip`:
+To set up this project, you'll need to create a conda environment and install the required packages listed in `requirements.txt`.
 
-   ```bash
-   pip install pyproj matplotlib basemap mplleaflet
+### Prerequisites
 
-## Observation
-
-Due to this known issue: [Issue](https://github.com/plotly/plotly.py/issues/3624), we need to modify exporter.py file in mplleaflet. 
+- [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) installed on your system.
 
 ```
-I'm not using Plotly directly but mplleaflet and I got the same error. I managed to make it work by replacing in this exporter.py file
-        offset_order = offset_dict[collection.get_offset_position()]
-by
-        offset_order = offset_dict[collection._offset_position]
+conda create --name <env> --file requirements.txt
 
-Hope it helps someone!
 ```
+## Create TIFF file to use with Leaflet
+
+First, run the `read.py` script to extract data from the `.p3d` file. Next, you should be able to create the TIFF file running the script `gdal_geotiff`. This TIFF file can be used inside the `index.html` script in `tornado-web` repo.
