@@ -1,9 +1,3 @@
-# Project Title
-
-## Branch: [Your Branch Name]
-
-This branch contains [brief description of the branch, e.g., "enhancements to the workspace structure, bug fixes, new features, etc."].
-
 ## Setup Instructions
 
 To set up this project, you'll need to create a conda environment and install the required packages listed in `requirements.txt`.
