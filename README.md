@@ -91,7 +91,7 @@ from qgis.core import *
     You can install QGIS through Conda by following the instructions on the [QGIS website](https://plugins.qgis.org/planet/tag/conda/). Typically, this involves adding a specific channel and then installing QGIS:
 
     ```bash
-  conda install qgis --channel conda-forge
+    conda install qgis --channel conda-forge
     ```
 
 ## Verifying Installation
