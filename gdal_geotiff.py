@@ -93,13 +93,8 @@ driver = None
 grid_data = None
 
 # Create a reference to the QgsApplication.
-
-
 qgs = QgsApplication([], True)
 
-
-# load providers
-qgs.initQgis()
 
 pipe = QgsRasterPipe()
 rlayer = QgsRasterLayer(file_name, "orientation")
@@ -116,3 +111,4 @@ else:
         provider.crs())
     print("TIF file processed successfully.")
 
+qgs.exitQgis()
