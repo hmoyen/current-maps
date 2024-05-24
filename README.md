@@ -57,8 +57,8 @@ You can set up the project using either a Python virtual environment (`venv`) or
 1. **Clone the Repository:**
 
     ```bash
-    git clone https://github.com/your-username/your-repo.git
-    cd your-repo
+    git clone git@github.com:hmoyen/current-maps.git
+    cd current-maps
     ```
 
 2. **Create a Conda Environment:**
