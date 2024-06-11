@@ -17,9 +17,16 @@ project = QgsProject.instance()
 
 # Enable on-the-fly CRS transformation
 QgsProject.instance().setCrs(QgsCoordinateReferenceSystem('EPSG:3857'))
+# Get the current working directory
+current_directory = os.getcwd()
 
-# Define the URI for the CSV file and set the CRS to EPSG:4326
-uri = "file:///home/lena/workspace_IC/tornado-web/current-maps/meshgrid_data.csv?encoding=UTF-8&delimiter=,&xField=Longitude&yField=Latitude"
+# Construct the file path
+file_path = os.path.join(current_directory, "meshgrid_data.csv")
+
+# Construct the URI
+uri = f"file://{file_path}?encoding=UTF-8&delimiter=,&xField=Longitude&yField=Latitude"
+
+
 vlayer = QgsVectorLayer(uri, "CSV Layer", "delimitedtext")
 
 # Configure the vector field symbol layer
